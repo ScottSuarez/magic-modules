@@ -14,11 +14,16 @@
 --- !ruby/object:Provider::Terraform::Config
 overrides: !ruby/object:Overrides::ResourceOverrides
   Processor: !ruby/object:Overrides::Terraform::ResourceOverride
-    import_format: ["{{%name}}"]
     examples:
       - !ruby/object:Provider::Terraform::Examples
         name: "documentai_processor"
         primary_resource_id: "processor"
+        vars:
+          processor_name: "test-processor"
+      - !ruby/object:Provider::Terraform::Examples
+        name: "documentai_processor_eu"
+        primary_resource_id: "processor"
+        skip_docs: true
         vars:
           processor_name: "test-processor"
   ProcessorDefaultVersion: !ruby/object:Overrides::Terraform::ResourceOverride
