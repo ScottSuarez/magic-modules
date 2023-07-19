@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Download go.mod and go.sum from your repository
 RUN curl -o go.mod "https://raw.githubusercontent.com/GoogleCloudPlatform/magic-modules/main/tpgtools/go.mod"
-RUN curl -o go.sum "https://raw.githubusercontent.com/GoogleCloudPlatform/magic-modules/main/tpgtools.sum"
+RUN curl -o go.sum "https://raw.githubusercontent.com/GoogleCloudPlatform/magic-modules/main/tpgtools/go.sum"
 
 # Install the go dependencies
 RUN go mod download
