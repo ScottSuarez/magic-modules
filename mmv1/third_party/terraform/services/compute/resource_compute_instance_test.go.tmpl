@@ -1799,6 +1799,13 @@ func TestAccComputeInstance_nictype_update(t *testing.T) {
 						t, "google_compute_instance.foobar", &instance),
 				),
 			},
+						{
+				Config: testAccComputeInstance_nictype(instanceName, instanceName, "IDPF"),
+				Check: resource.ComposeTestCheckFunc(
+					testAccCheckComputeInstanceExists(
+						t, "google_compute_instance.foobar", &instance),
+				),
+			},
 		},
 	})
 }
