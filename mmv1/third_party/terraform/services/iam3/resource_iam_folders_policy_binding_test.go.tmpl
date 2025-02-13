@@ -67,7 +67,14 @@ resource "time_sleep" "wait_120s" {
   create_duration = "120s"
 }
 
+resource "time_sleep" "wait_60_seconds" {
+  create_duration = "60s"
+  depends_on = [google_iam_principal_access_boundary_policy.pab_policy]
+}
+
+
 resource "google_iam_folders_policy_binding" "my-folder-binding" {
+  depends_on = [time_sleep.wait_60_seconds]
   folder         = google_folder.folder.folder_id
   location       = "global"
   display_name   = "test folder binding%{random_suffix}"
@@ -103,6 +110,7 @@ resource "time_sleep" "wait_120s" {
 }
 
 resource "google_iam_folders_policy_binding" "my-folder-binding" {
+  depends_on = [time_sleep.wait_60_seconds]
   folder         = google_folder.folder.folder_id
   location       = "global"
   display_name   = "test folder binding%{random_suffix}"
