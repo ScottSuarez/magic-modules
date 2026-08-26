@@ -6,10 +6,6 @@ default: build
 
 
 # mm setup
-ifneq ($(RESOURCE),)
-  mmv1_args += --resource $(RESOURCE)
-endif
-
 ifneq ($(OVERRIDES),)
   mmv1_args += --overrides $(OVERRIDES)
 endif
